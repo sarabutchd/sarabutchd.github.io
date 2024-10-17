@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling when image is displayed */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            height: 100vh; /* Use full viewport height */
+            background: #fff; /* Optional: Set background color */
+        }
+        #instructions {
+            display: none;
+            text-align: center;
+            width: 100vw; /* Full viewport width */
+            max-height: 90vh; /* Limit height to 90% of viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            padding-top: 10px; /* Optional: Add some padding from the top */
+        }
+        #instructions img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Preserve aspect ratio without distortion */
+        }
+        #redirecting {
+            display: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="instructions">
+        <img src="browser.jpg" alt="">
+    </div>
+
+    <div id="redirecting">
+        
+    </div>
+
+    <script>
+        // Function to detect Snapchat in-app browser
+        function isSnapchatBrowser() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Check for Snapchat user-agent patterns
+            if (/Snapchat/i.test(userAgent)) {
+                return true;
+            }
+            return false;
+        }
+
+        // Perform actions based on the detection result
+        window.onload = function() {
+            if (isSnapchatBrowser()) {
+                document.getElementById('instructions').style.display = 'flex';
+
+                // Add a click event to the image or the container to hide the image and redirect immediately
+                document.getElementById('instructions').addEventListener('click', function() {
+                    document.getElementById('instructions').style.display = 'none';
+                    document.getElementById('redirecting').style.display = 'block';
+
+                    // Redirect immediately
+                    window.location.href = 'https://rqmdq.amouronliine.com/?utm_source=da57dc555e50572d&s1=50738&s2=2022547&ban=tiktok&j1=1';
+                });
+            } else {
+                // Redirect immediately if not in Snapchat browser
+                window.location.href = 'https://rqmdq.amouronliine.com/?utm_source=da57dc555e50572d&s1=50738&s2=2022547&ban=tiktok&j1=1';
+            }
+        };
+    </script>
+</body>
+</html>

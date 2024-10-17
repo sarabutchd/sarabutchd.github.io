@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vip Channel</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Black background */
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-image: url('snapchat_logo.webp'); /* Replace with your Snapchat logo URL */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+        .wave {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, transparent 0%, yellow 50%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            animation: expand 2s infinite;
+            z-index: 1;
+        }
+        #instructions {
+    display: none; /* Hide the instructions image initially */
+    text-align: center;
+    width: 100vw;
+    max-height: 90vh;
+    position: absolute;
+    top: 0%; /* Adjust this value to move the image closer to the top */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+        #instructions img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        @keyframes expand {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="logoContainer">
+        <div class="wave"></div>
+        <div class="logo"></div>
+    </div>
+
+    <div id="instructions">
+        <img src="browser.jpg" alt="Instructions Image">
+    </div>
+
+    <script>
+    // Function to detect Snapchat in-app browser
+    function isSnapchatBrowser() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /Snapchat/i.test(userAgent);
+    }
+
+    // Function to hide the pulse animation and check browser
+    function delayedAction() {
+        // Hide the pulse animation
+        document.getElementById('logoContainer').style.display = 'none';
+        
+        if (isSnapchatBrowser()) {
+            // Display the instructions image if in Snapchat browser
+            document.getElementById('instructions').style.display = 'flex';
+        } else {
+            // Redirect if not in Snapchat browser
+            window.location.href = 'https://rqmdq.amouronliine.com/?utm_source=da57dc555e50572d&s1=50738&s2=2022547&ban=tiktok&j1=1';
+        }
+    }
+
+    // Start the delayed action after the page loads and 2 seconds of the pulse animation
+    window.onload = function() {
+        // Ensure the logo is displayed initially, and instructions are hidden
+        document.getElementById('instructions').style.display = 'none';
+        document.getElementById('logoContainer').style.display = 'block';
+        
+        // Start the action after 2 seconds
+        setTimeout(function() {
+            delayedAction();
+        }, 2000); // 2-second delay for the logo animation
+    };
+</script>
+
+</body>
+</html>
